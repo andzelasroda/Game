@@ -1,5 +1,7 @@
 import turtle
 
+# plik w pythonie powinien mieć rozszerzenie   .py
+
 wn = turtle.Screen()
 wn.title("PingPong Andzela")
 wn.bgcolor("light blue")
@@ -49,6 +51,16 @@ pen.penup()
 pen.hideturtle()
 pen.goto(0,260)
 pen.write("Gracz A: 0 Gracz B: 0", align="center",font=("Courier", 24, "bold"))
+
+# B.K.: Funkcje lepiej umieścić na samej górze pliku/programu
+# jeżeli w linijce 32 umieścimy wywołanie funkcji racket_a_gora() dostaniemy błąd
+# ponieważ nie jest ona jeszcze zdeklarowana
+#
+# albo jeszcze lepiej: zrobić z nich osobny moduł :)
+#
+# trzymajmy się jednej konwencji nazewnictwa (albo po polsku albo po angielsku) - konsekwentnie
+# ogólnie... programujemy po angielsku, taka przyjęta konwencja ;)
+# tekst w konsoli, komunikaty dla usera mogą być po polsku, ale kod powinien byc po angielsu
 
 # functions
 def racket_a_gora():
@@ -119,5 +131,10 @@ while True:
     if (ball.xcor() < -340 and ball.xcor() < -350) and (ball.ycor() < racket_a.ycor() + 40 and ball.ycor() > racket_a.ycor() -40):
         ball.setx(-340)
         ball.dx *= -1
+
+
+    # B.K.: Brakuje sprawdzania pozycji paletki. Tak aby nie wyjeżdzała za ekran.
+    # jedno z proponowanych rozwiazań podrzuciłem na czacie
+
 
 # Enjoy :) 
